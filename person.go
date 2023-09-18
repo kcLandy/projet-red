@@ -18,4 +18,5 @@ type Person struct {
 	shield int 
 	effects string
 	dodge int
+	stun int
 }
