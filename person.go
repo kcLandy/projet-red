@@ -1,6 +1,6 @@
 package main
 
-type Personne struct {
+type Person struct {
 	name string
 	age int
 	rich bool 
