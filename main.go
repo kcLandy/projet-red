@@ -1,4 +1,4 @@
-package main
+package 
 
 import "github.com/gen2brain/raylib-go/raylib"
 
