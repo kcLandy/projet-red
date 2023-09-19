@@ -11,4 +11,5 @@ type Weapons int
 		sword Weapons = iota
 		bow Weapons = iota
 		axe Weapons = iota
+		trenchraidingclub Weapons = iota
 	)

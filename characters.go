@@ -3,23 +3,23 @@ package main
 import "fmt"
 
 type character struct {
-	name string
-	class string 
-	level int
-	maxlevel int
-	maxHP int 
-	currentHP int
-	inventory []int 
+	Name string
+	Class string 
+	Level int
+	Maxlevel int
+	MaxHP int 
+	CurrentHP int
+	Inventory []int 
 }
 func main() {
 
 	player1 := character {
-		name : "Raff",
-		class : "warrior",
-		level : 1,
-		maxlevel : 5,
-		currentHP : 100,
-		maxHP : 500,
+		Name : "Raff",
+		Class : "warrior",
+		Level : 1,
+		Maxlevel : 5,
+		CurrentHP : 100,
+		MaxHP : 500,
 	}
 fmt.Println("character name :", player1.name)
 fmt.Println("character class :", player1.class)
@@ -28,3 +28,10 @@ fmt.Println("character max level :", player1.maxlevel)
 fmt.Println("character HP :", player1.currentHP)
 fmt.Println("character max HP :", player1.maxHP)
 }
+type Class int
+const(
+	warrior Class = iota
+	archery Class = iota
+	healer Class = iota
+	
+)

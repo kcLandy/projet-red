@@ -5,5 +5,4 @@ type weapons struct {
 	axedmg int
 	bowdmg int
 	trenchraidingclubdmg int 
-	
 }
