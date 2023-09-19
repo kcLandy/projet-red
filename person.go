@@ -3,7 +3,7 @@ package main
 type Person struct {
 	name string
 	age int
-	rich bool 
+	money bool 
 	strenght int 
 	agility int 
 	speed int 
