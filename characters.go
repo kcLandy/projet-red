@@ -24,5 +24,7 @@ func main() {
 fmt.Println("character name :", player1.name)
 fmt.Println("character class :", player1.class)
 fmt.Println("character level :", player1.level)
+fmt.Println("character max level :", player1.maxlevel)
 fmt.Println("character HP :", player1.currentHP)
+fmt.Println("character max HP :", player1.maxHP)
 }
