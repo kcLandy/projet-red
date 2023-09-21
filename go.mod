@@ -2,4 +2,7 @@ module characters.go
 
 go 1.18
 
-require github.com/mbndr/figlet4go v0.0.0-20190224160619-d6cef5b186ea // indirect
+require (
+	github.com/gen2brain/raylib-go/raylib v0.0.0-20230826160040-f770ca098119
+	github.com/mbndr/figlet4go v0.0.0-20190224160619-d6cef5b186ea // indirect
+)
