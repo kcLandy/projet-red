@@ -2,75 +2,53 @@ package main
 
 import "fmt"
 
-type Character struct {
-	Name string
-	Class string
-	Level int
-	MaxHP int 
-	CurrentHP int 
-	Inventory []string
-}
+func accessInventory(character *Character) {
+    for {
+        fmt.Println("Inventory Items:")
+        if len(character.Inventory) > 0 {
+            for i, item := range character.Inventory {
+                fmt.Printf("%d. %s\n", i+1, item)
+            }
+        } else {
+            fmt.Println("Inventory is empty.")
+        }
 
-func Init(name string, class string, level int, maxHP int, currentHP int, inventory []string) Character {
-player := Character{
-	Name: name,
-	Class: class,
-	Level: level,
-	MaxHP: maxHP,
-	CurrentHP: currentHP,
-	Inventory: inventory,
-}
-return player
-}
+        fmt.Println("Menu:")
+        fmt.Println("1. Return to Previous Menu")
+        fmt.Println("2. Use Potion")
+        fmt.Println("3. Exit")
 
-func displayInfo(player Character) {
-	fmt.Println("\n show off player's informartions :")
-	fmt.Println("\n player's name:", player.Name)
-	fmt.Println("\n player's class:", player.Class)
-	fmt.Println("\n player's level:", player.Level)
-	fmt.Println("\n player's maxHP:", player.MaxHP)
-	fmt.Println("\n player's currentHP:", player.CurrentHP)
-	fmt.Println("\n player's inventory:", player.Inventory)
-}
+        var choice int
+        fmt.Print("Enter your choice: ")
+        fmt.Scan(&choice)
 
-func accessInventory(player Character)
-fmt.Println("\n Player's inventory:")
-for i, item := range player.Inventory {
-	fmt.Printf("%d. %s\n", i+1, item)
-}
-fmt.Println("0. Back to main menu")
-
-var choix int
-fmt.Print("Please choose an option:")
-fmt.Scan(&choice)
-
-if choice == 0 {
-	return
-}
-
-func main() {
-	p1 := Init("Raff", "Elf", 1, 100, 40, []string{"Potion", "Potion", "Potion"})
-
-	for {
-		fmt.Println("\n Menu :")
-		fmt.Println("1. Show off player's informations")
-		fmt.Println("2. Access to inventory")
-		fmt.Println("3. Exit")
-
-		var choice int 
-		fmt.Print("Choose an option")
-		fmt.Scan(&choice)
-
-		switch choice {
-		case 1:
-			disploInfo(p1)
-		case 2:
-			fmt.Println("\n Player's inventory:", p1.Inventory)
-		case 3:
-			fmt.Println("\n See you soon !")
-			return
-		default:
-			fmt.Println("\n Option unavailable, please choose a valid option.")
-		}
-	}
+        switch choice {
+        case 1:
+            return // Return to the previous menu
+        case 2:
+            if len(character.Inventory) > 0 {
+                // Check if there are potions in the inventory
+                for i, item := range character.Inventory {
+                    if item == "Potion" {
+                        // Use the potion
+                        character.CurrentHealthPoints += 50
+                        if character.CurrentHealthPoints > character.MaxHealthPoints {
+                            character.CurrentHealthPoints = character.MaxHealthPoints
+                        }
+                        // Remove the used potion from the inventory
+                        character.Inventory = append(character.Inventory[:i], character.Inventory[i+1:]...)
+                        fmt.Println("You used a Potion. Current Health Points:", character.CurrentHealthPoints, "/", character.MaxHealthPoints)
+                        break
+                    }
+                }
+            } else {
+                fmt.Println("No Potions in the inventory.")
+            }
+        case 3:
+            fmt.Println("Exiting the inventory menu.")
+            return
+        default:
+            fmt.Println("Invalid choice.")
+        }
+    }
 }
