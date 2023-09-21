@@ -1,0 +1,46 @@
+package main
+
+import (
+	"fmt"
+"math/rand"
+"time"
+)
+
+type Character struct {
+	Name string
+	Class string
+	Level int
+	MaxHP int 
+	CurrentHP int 
+	Inventory []string
+}
+
+func Init(name string, class string, level int, maxHP int, currentHP int, inventory []string) Character {
+player := Character{
+	Name: name,
+	Class: class,
+	Level: level,
+	MaxHP: maxHP,
+	CurrentHP: currentHP,
+	Inventory: inventory,
+}
+return player
+}
+
+func dead(player *Character) {
+	if player.CurrentHP <= 0 {
+		fmt.Printf("%S you died !\n", player.Name)
+
+		player.CurrentHP = player.MaxHP / 2
+		fmt.Printf("%s came back from the Death !\n", player.Name)
+	}
+}
+func main() {
+	p1 := Init("Raff", "Elf", 1, 100, 40, []string{"Potion", "Potion", "Potion"})
+	fmt.Printf("CurentHP of %s : %d\n", p1.Name, p1.CurrentHP)
+	p1.CurrentHP -= 60
+	fmt.Printf("Current HP of %s after being hit: %d\n", p1.Name, p1.CurrentHP)
+
+	dead(&p1)
+	fmt.Printf("Current HP of %s after making a Jesus' trick: %d\n", p1.Name, p1.CurrentHP)
+}
