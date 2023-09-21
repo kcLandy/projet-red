@@ -1,4 +1,4 @@
-package main 
+package 
 
 type enemies struct {
 	Tall int
@@ -25,7 +25,7 @@ type HP int
 const(
 	150 HP = iota 
 	100 HP = iota 
-	>50 HP = iota
+	50 HP = iota
 )
 
 type Enemiesweapons int 

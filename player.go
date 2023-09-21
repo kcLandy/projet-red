@@ -1,4 +1,4 @@
-package main
+package 
 
 import "fmt"
 
@@ -9,7 +9,7 @@ type character struct {
 	Maxlevel int
 	MaxHP int 
 	CurrentHP int
-	Inventory []int 
+	Inventory []string
 }
 func main() {
 
@@ -20,6 +20,7 @@ func main() {
 		Maxlevel : 5,
 		CurrentHP : 100,
 		MaxHP : 500,
+		Inventory []string["sword", "shield", "potion"]
 	}
 fmt.Println("character name :", player1.name)
 fmt.Println("character class :", player1.class)
@@ -27,11 +28,4 @@ fmt.Println("character level :", player1.level)
 fmt.Println("character max level :", player1.maxlevel)
 fmt.Println("character HP :", player1.currentHP)
 fmt.Println("character max HP :", player1.maxHP)
-}
-type Class int
-const(
-	warrior Class = iota
-	archery Class = iota
-	healer Class = iota
-	
-)
+fmt.Println("character inventory :", player1.inventory)}
