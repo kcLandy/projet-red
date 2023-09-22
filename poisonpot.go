@@ -14,7 +14,7 @@ func poisonPot(character *Character) {
             character.CurrentHealthPoints = 0
         }
         fmt.Printf("Current Health Points: %d / %d\n", character.CurrentHealthPoints, character.MaxHealthPoints)
-        time.Sleep(1 * time.Second) // Delay for 1 second
+        time.Sleep(1 * time.Second)
     }
     
     fmt.Println("The poison has worn off.")

@@ -24,18 +24,15 @@ func accessInventory(character *Character) {
 
         switch choice {
         case 1:
-            return // Return to the previous menu
+            return
         case 2:
             if len(character.Inventory) > 0 {
-                // Check if there are potions in the inventory
                 for i, item := range character.Inventory {
                     if item == "Potion" {
-                        // Use the potion
                         character.CurrentHealthPoints += 50
                         if character.CurrentHealthPoints > character.MaxHealthPoints {
                             character.CurrentHealthPoints = character.MaxHealthPoints
                         }
-                        // Remove the used potion from the inventory
                         character.Inventory = append(character.Inventory[:i], character.Inventory[i+1:]...)
                         fmt.Println("You used a Potion. Current Health Points:", character.CurrentHealthPoints, "/", character.MaxHealthPoints)
                         break

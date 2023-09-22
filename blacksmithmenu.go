@@ -37,7 +37,6 @@ func blacksmithMenu(character *Character) {
             fmt.Println("You don't have the necessary resources or gold to craft", equipmentName)
         }
     case 4:
-        // Retourner au menu précédent
     default:
         fmt.Println("Invalid choice.")
     }

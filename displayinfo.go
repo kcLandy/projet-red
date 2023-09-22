@@ -9,6 +9,6 @@ func displayInfo(character Character) {
     fmt.Println("Level:", character.Level)
     fmt.Println("HP:", character.CurrentHealthPoints, "/", character.MaxHealthPoints)
     fmt.Println("Inventory:", character.Inventory)
-    fmt.Println("Gold:", character.Gold) // Afficher l'argent du joueur
-    fmt.Println("Skills:", character.Skills) // Afficher les sorts
+    fmt.Println("Gold:", character.Gold)
+    fmt.Println("Skills:", character.Skills)
 }
