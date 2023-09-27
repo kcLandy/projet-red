@@ -2,21 +2,21 @@ package main
 
 import "fmt"
 
-func blacksmithMenu(character *Character) {
+func forgeMenu(character *Character) {
     fmt.Println("Blacksmith Menu:")
     fmt.Println("1. Craft Adventurer's Hat")
     fmt.Println("2. Craft Adventurer's Tunic")
     fmt.Println("3. Craft Adventurer's Boots")
     fmt.Println("4. Return to Previous Menu")
 
-    var blacksmithChoice int
+    var forgeChoice int
     fmt.Print("Enter your choice: ")
-    fmt.Scan(&blacksmithChoice)
+    fmt.Scan(&forgeChoice)
 
-    switch blacksmithChoice {
+    switch forgeChoice {
     case 1, 2, 3:
         equipmentName := ""
-        switch blacksmithChoice {
+        switch forgeChoice {
         case 1:
             equipmentName = "Adventurer's Hat"
         case 2:

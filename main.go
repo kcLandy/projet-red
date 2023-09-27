@@ -15,6 +15,15 @@ type Character struct {
     Inventory []string
     Gold int
     Skills []string
+    Attack int
+}
+
+type Enemys struct {
+    Name string
+    Level int
+    maxHP int
+    HP int
+    Attack int
 }
 
 type Equipment struct {
@@ -84,7 +93,7 @@ func main() {
         case 3:
             Merchant(&c1)
         case 4:
-            blacksmithMenu(&c1)
+            forgeMenu(&c1)
         case 5:
             checkDead(&c1)
         case 6:

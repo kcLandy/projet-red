@@ -13,7 +13,7 @@ func charCreation() Character {
     fmt.Scanln(&name)
     name = strings.ToLower(name)
     fmt.Println("Choose your character's class:")
-    fmt.Println("1.Gohano")
+    fmt.Println("1. Gohano")
     fmt.Println("2. Gokloch")
     fmt.Println("3. Manjle")
 
@@ -29,8 +29,7 @@ func charCreation() Character {
     case 3:
         class = "Manjle"
     default:
-        fmt.Println("Invalid choice. Defaulting to Human class.")
-        class = "Gohano"
+        fmt.Println("Invalid choice. You must choose one !")
     }
     var maxHP int
     switch class {
