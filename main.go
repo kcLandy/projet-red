@@ -46,7 +46,16 @@ var equipmentList = map[string]Equipment{
 }
 
 func main() {
-    startTheGame()
+    fmt.Println("Start the game ?")
+    fmt.Println("Yes")
+    fmt.Println("No")
+
+    var choice string
+    fmt.Scan(&choice)
+
+    switch choice {
+    case "Yes", "yes":
+        fmt.Println("You're a rats killer")
     
     rand.Seed(time.Now().UnixNano()) // sert à générer un nombre aléatoire
 
@@ -98,4 +107,10 @@ func main() {
             fmt.Println("Invalid choice.")
         }
     }
+case "No", "no":
+    fmt.Println("You're a little pussy")
+default:
+    fmt.Println("You don't know how to read maruta ?")
+    return
+}
 }
