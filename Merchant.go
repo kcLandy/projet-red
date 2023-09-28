@@ -7,8 +7,8 @@ func Merchant(c1 *Character) {
 
 	fmt.Println("Merchant Menu:")
             fmt.Println("1. Buy Potion (3 Gold)")
-            fmt.Println("2. Buy Poison Potion (6 Gold)")
-            fmt.Println("3. Buy SpellBook: Fireball (25 Gold)")
+            fmt.Println("2. Buy Rat poison (6 Gold)")
+            fmt.Println("3. Buy Hunter Skill (25 Gold)")
             fmt.Println("4. Buy Wolf Fur (4 Gold)")
             fmt.Println("5. Buy Troll Skin (7 Gold)")
             fmt.Println("6. Buy Boar Leather (3 Gold)")
@@ -29,18 +29,18 @@ func Merchant(c1 *Character) {
                 }
             case 2:
                 if c1.Gold >= 6 {
-                    addInventory(charac1, "Poison Potion")
+                    addInventory(charac1, "Rat poison")
                     c1.Gold -= 6
                 } else {
-                    fmt.Println("Not enough gold to buy a Poison Potion.")
+                    fmt.Println("Not enough gold to buy a Rat poison.")
                 }
             case 3:
                 if c1.Gold >= 25 {
-                    addInventory(charac1, "SpellBook: Fireball")
-                    spellBook(charac1, "Fireball")
+                    addInventory(charac1, "Hunter Skil")
+                    spellBook(charac1, "Hunting")
                     c1.Gold -= 25
                 } else {
-                    fmt.Println("Not enough gold to buy a Spell Book: Fireball.")
+                    fmt.Println("Not enough gold to buy a Hunter Skill.")
                 }
             case 4:
                 if c1.Gold >= 4 {

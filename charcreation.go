@@ -40,13 +40,11 @@ func charCreation() Character {
     case "Manjle":
         maxHP = 120
     }
-    currentHP := maxHP / 2
     character := Character{
         Name:             name,
         Class:            class,
         Level:            1,
-        MaxHealthPoints:  maxHP,
-        CurrentHealthPoints: currentHP,
+        MaxHP:  maxHP,
         Inventory:         []string{"Punch"},
         Gold:              100,
     }

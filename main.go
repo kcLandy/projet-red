@@ -10,19 +10,11 @@ type Character struct {
     Name string
     Class string
     Level int
-    MaxHealthPoints int
-    CurrentHealthPoints int
+    MaxHP int
+    HP int
     Inventory []string
     Gold int
     Skills []string
-    Attack int
-}
-
-type Enemys struct {
-    Name string
-    Level int
-    maxHP int
-    HP int
     Attack int
 }
 
@@ -75,19 +67,18 @@ func main() {
         fmt.Println("1. Display Character Information")
         fmt.Println("2. Access Inventory")
         fmt.Println("3. Merchant")
-        fmt.Println("4. Blacksmith")
+        fmt.Println("4. Forge")
         fmt.Println("5. Check for Death")
-        fmt.Println("6. Use Poison Potion")
-        fmt.Println("7. Learn Spell: Fireball")
+        fmt.Println("6. Use Rat poison")
+        fmt.Println("7. Learn Hunter Skill")
         fmt.Println("8. Exit")
 
         var choice int
-        fmt.Print("Enter your choice: ")
         fmt.Scan(&choice)
 
         switch choice {
         case 1:
-            displayInfo(c1)
+            displayInfoChar(c1)
         case 2:
             accessInventory(&c1)
         case 3:
@@ -97,17 +88,17 @@ func main() {
         case 5:
             checkDead(&c1)
         case 6:
-            if containsItem(&c1, "Poison Potion") {
-                removeInventory(&c1, "Poison Potion")
-                poisonPot(&c1)
+            if containsItem(&c1, "Rat poison") {
+                removeInventory(&c1, "Rat poison")
+                ratPoison(&c1)
             } else {
-                fmt.Println("You don't have any Poison Potions in your inventory.")
+                fmt.Println("You don't have any Rat poison in your inventory.")
             }
         case 7:
-            if containsItem(&c1, "SpellBook: Fireball") {
-                spellBook(&c1, "Fireball")
+            if containsItem(&c1, "Hunter Skill") {
+                spellBook(&c1, "Hunting")
             } else {
-                fmt.Println("You need the SpellBook: Fireball to learn this spell.")
+                fmt.Println("You need the Hunter Skill to learn hunting.")
             }
         case 8:
             fmt.Println("Exiting the program.")

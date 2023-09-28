@@ -29,12 +29,12 @@ func accessInventory(character *Character) {
             if len(character.Inventory) > 0 {
                 for i, item := range character.Inventory {
                     if item == "Potion" {
-                        character.CurrentHealthPoints += 50
-                        if character.CurrentHealthPoints > character.MaxHealthPoints {
-                            character.CurrentHealthPoints = character.MaxHealthPoints
+                        character.HP += 50
+                        if character.HP > character.MaxHP {
+                            character.HP = character.MaxHP
                         }
                         character.Inventory = append(character.Inventory[:i], character.Inventory[i+1:]...)
-                        fmt.Println("You used a Potion. Current Health Points:", character.CurrentHealthPoints, "/", character.MaxHealthPoints)
+                        fmt.Println("You used a Potion. Current Health Points:", character.HP, "/", character.MaxHP)
                         break
                     }
                 }
