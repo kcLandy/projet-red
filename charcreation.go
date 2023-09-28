@@ -31,22 +31,30 @@ func charCreation() Character {
     default:
         fmt.Println("Invalid choice. You must choose one !")
     }
-    var maxHP int
+    var (
+        maxHP int
+        attack int
+    )
+
     switch class {
     case "Gohano":
         maxHP = 100
+        attack = 25
     case "Gokloch":
         maxHP = 80
+        attack = 30
     case "Manjle":
         maxHP = 120
+        attack = 20
     }
     character := Character{
-        Name:             name,
-        Class:            class,
-        Level:            1,
-        MaxHP:  maxHP,
-        Inventory:         []string{"Punch"},
-        Gold:              100,
+        Name: name,
+        Class: class,
+        Level: 1,
+        MaxHP: maxHP,
+        Inventory: []string{"Punch"},
+        Gold: 100,
+        Attack: attack,
     }
     return character
 }

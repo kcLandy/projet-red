@@ -15,7 +15,7 @@ func accessInventory(character *Character) {
 
         fmt.Println("Menu:")
         fmt.Println("1. Return to Previous Menu")
-        fmt.Println("2. Use Potion")
+        fmt.Println("2. Use Health Potion")
         fmt.Println("3. Exit")
 
         var choice int
@@ -28,18 +28,18 @@ func accessInventory(character *Character) {
         case 2:
             if len(character.Inventory) > 0 {
                 for i, item := range character.Inventory {
-                    if item == "Potion" {
+                    if item == "Health Potion" {
                         character.HP += 50
                         if character.HP > character.MaxHP {
                             character.HP = character.MaxHP
                         }
                         character.Inventory = append(character.Inventory[:i], character.Inventory[i+1:]...)
-                        fmt.Println("You used a Potion. Current Health Points:", character.HP, "/", character.MaxHP)
+                        fmt.Println("You used a Health Potion. Current Health Points:", character.HP, "/", character.MaxHP)
                         break
                     }
                 }
             } else {
-                fmt.Println("No Potions in the inventory.")
+                fmt.Println("No Health Potions in the inventory.")
             }
         case 3:
             fmt.Println("Exiting the inventory menu.")

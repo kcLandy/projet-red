@@ -5,15 +5,15 @@ import (
 	"time"
 )
 
-func ratPoison(character *Character) {
-    fmt.Println("You are poisoned! Taking 10 points of poison damage per second for 3 seconds.")
+func ratPoison(rat *RatEnemy) {
+    fmt.Println("You poisoned the rat! He takes 10 points of poison damage per second for 3 seconds.")
     
     for i := 0; i < 3; i++ {
-        character.HP -= 10
-        if character.HP < 0 {
-            character.MaxHP = 0
+        rat.HP -= 10
+        if rat.HP < 0 {
+            rat.HP = 0
         }
-        fmt.Printf("Current Health Points: %d / %d\n", character.HP, character.MaxHP)
+        fmt.Printf("Current Health Points: %d \n", rat.HP)
         time.Sleep(1 * time.Second)
     }
     

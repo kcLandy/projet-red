@@ -18,6 +18,12 @@ type Character struct {
     Attack int
 }
 
+type RatEnemy struct {
+	Level  int
+	HP     int
+	Attack int
+}
+
 type Equipment struct {
     Name string
     Recipe map[string]int
@@ -26,23 +32,23 @@ type Equipment struct {
 }
 
 var equipmentList = map[string]Equipment{
-    "Adventurer's Hat": {
-        Name: "Adventurer's Hat",
-        Recipe: map[string]int{"Crow Feather": 1, "Boar Leather": 1},
-        Cost: 5,
-        CraftMsg: "You crafted an Adventurer's Hat!",
-    },
-    "Adventurer's Tunic": {
-        Name: "Adventurer's Tunic",
-        Recipe: map[string]int{"Wolf Fur": 2, "Troll Skin": 1},
+    "Hunter's Hat": {
+        Name: "Hunter's Hat",
+        Recipe: map[string]int{"Rat Tail": 1, "Rat Leather": 2},
         Cost: 10,
-        CraftMsg: "You crafted an Adventurer's Tunic!",
+        CraftMsg: "You crafted an Hunter's Hat!",
     },
-    "Adventurer's Boots": {
-        Name: "Adventurer's Boots",
-        Recipe: map[string]int{"Wolf Fur": 1, "Boar Leather": 1},
-        Cost: 7,
-        CraftMsg: "You crafted Adventurer's Boots!",
+    "Hunter's Tunic": {
+        Name: "Hunter's Tunic",
+        Recipe: map[string]int{"Rat Fur": 5, "Rat Tail": 4, "Rat Leather": 3},
+        Cost: 25,
+        CraftMsg: "You crafted an Hunter's Tunic!",
+    },
+    "Hunter's Boots": {
+        Name: "Hunter's Boots",
+        Recipe: map[string]int{"Rat Tail": 2, "Rat Fur": 2},
+        Cost: 15,
+        CraftMsg: "You crafted Hunter's Boots!",
     },
 }
 
@@ -61,6 +67,7 @@ func main() {
     rand.Seed(time.Now().UnixNano()) // sert à générer un nombre aléatoire
 
     c1 := charCreation()
+    r1 := RatEnemy{}
 
     for {
         fmt.Println("Menu:")
@@ -68,9 +75,9 @@ func main() {
         fmt.Println("2. Access Inventory")
         fmt.Println("3. Merchant")
         fmt.Println("4. Forge")
-        fmt.Println("5. Check for Death")
-        fmt.Println("6. Use Rat poison")
-        fmt.Println("7. Learn Hunter Skill")
+        fmt.Println("5. Use Rat poison")
+        fmt.Println("6. Learn Hunter Skill")
+        fmt.Println("7. Burn some rats")
         fmt.Println("8. Exit")
 
         var choice int
@@ -86,20 +93,21 @@ func main() {
         case 4:
             forgeMenu(&c1)
         case 5:
-            checkDead(&c1)
-        case 6:
             if containsItem(&c1, "Rat poison") {
                 removeInventory(&c1, "Rat poison")
-                ratPoison(&c1)
+                ratPoison(&r1)
             } else {
                 fmt.Println("You don't have any Rat poison in your inventory.")
             }
-        case 7:
+        case 6:
             if containsItem(&c1, "Hunter Skill") {
-                spellBook(&c1, "Hunting")
+                ratHunter(&c1, "Hunting")
             } else {
                 fmt.Println("You need the Hunter Skill to learn hunting.")
             }
+        case 7:
+            r1 = ratEnemy()
+            combat(c1,r1)
         case 8:
             fmt.Println("Exiting the program.")
             return
@@ -108,7 +116,7 @@ func main() {
         }
     }
 case "No", "no":
-    fmt.Println("You're a little pussy")
+    fmt.Println("You're not a real pizza maker")
 default:
     fmt.Println("You don't know how to read maruta ?")
     return
