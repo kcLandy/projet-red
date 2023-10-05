@@ -10,11 +10,11 @@ func ratPoison(rat *RatEnemy) {
     
     for i := 0; i < 3; i++ {
         rat.HP -= 10
-        if rat.HP < 0 {
-            rat.HP = 0
-        }
         fmt.Printf("Current Health Points: %d \n", rat.HP)
         time.Sleep(1 * time.Second)
+    }
+    if rat.HP <= 0 {
+        fmt.Println("You killed the rat")
     }
     
     fmt.Println("The poison has worn off.")
